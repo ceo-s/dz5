@@ -1,0 +1,11 @@
+import os
+
+def start_test_python():
+    os.system("pytest test_python.py")
+
+def start_test_filemanager():
+    os.system("pytest test_filemanager.py")
+    
+
+start_test_python()
+start_test_filemanager()
