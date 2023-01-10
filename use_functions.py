@@ -37,10 +37,19 @@
 """
 import json
 
-def get_json():
-    with open("data.json", "r") as file:
-        json_r = json.loads(file.read())
+def open_data(func):
+    def wrapper():
+        with open("data.json", "r") as file:
+            a = func(file)
+        return a
+    return wrapper
+
+@open_data
+def get_json(file):
+    json_r = json.loads(file.read())
     return json_r
+
+print(get_json())
 
 def write_data(func):
     def wrapper(sum, clas):
