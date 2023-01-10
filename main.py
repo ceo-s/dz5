@@ -79,6 +79,15 @@ def change_directory():
         print(ex)
         change_directory()
 
+def save_dirs():
+    with open("listdir.txt", "w") as file:
+        files = []
+        dirs = []
+        for stuff in os.listdir():
+            files.append(stuff) if os.path.isfile(stuff) == True else dirs.append(stuff)
+        with open("listdir.txt", "w") as file:
+            file.write(f"files: {', '.join(files)}\ndirs: {', '.join(dirs)}")
+
 def exit_func():
     global polling
     polling = False
@@ -88,7 +97,7 @@ dict_with_functions = {
     "4": check_directory, "5": check_directory_foulders,
     "6": check_directory_files, "7": get_operating_system,
     "8": get_creator_info, "9": play_victory, 
-    "10": mybank_acc, "11": change_directory, "12": exit_func
+    "10": mybank_acc, "11": change_directory, "12": save_dirs, "13": exit_func
 }
 
 polling = True
@@ -109,7 +118,8 @@ while polling == True:
         9 - играть в викторину;
         10 - мой банковский счет;
         11 - смена рабочей директории (*необязательный пункт);
-        12 - выход
+        12 - сохранить содержимое рабочей директории в файл
+        13 - выход
         """
     )
 

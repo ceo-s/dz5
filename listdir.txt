@@ -1,0 +1,2 @@
+files: .gitignore, data.json, listdir.txt, main.py, start_testing, use_functions.py
+dirs: .git, __pycache__
